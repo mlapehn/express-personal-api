@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
  * DATABASE *
  ************/
 
-// var db = require('./models');
+ var db = require('./models');
 
 /**********
  * ROUTES *
@@ -38,11 +38,26 @@ app.get('/api', function api_index(req, res) {
   // TODO: Document all your api endpoints below
   res.json({
     Personal_API: true, // DONE
-    name: "Matthew Lapehn"
-    current city: "Denver, CO"
-    gender: "Male"
-    height: ""
-    weight: "Wouldn't you like to know!"
+    message: "Welcome to my personal api! Here's what you need to know!",
+    documentation_url: "https://github.com/mlapehn/express-personal-api/blob/master/README.md", // Update readme
+    base_url: "https://fast-inlet-93943.herokuapp.com/", // API url - DONE
+    endpoints: [
+      {method: "GET", path: "/api", description: "Describes all available endpoints"},
+      {method: "GET", path: "/api/profile", description: "Fast Facts"}, // Facts about me
+      {method: "POST", path: "/api/movies", description: "Favorite Movies"} // Movies
+      {method: "Add something"} //add another catagory
+    ]
+  })
+});
+
+// Profile Endpoint
+app.get('/api/profile', function api_profile(req, res) {
+  res.json({
+    name: "Matthew Lapehn",
+    current_city: "Denver, CO",
+    gender: "Male",
+    height: "",
+    weight: "Wouldn't you like to know!",
     parents: [
     {name: "Boni Hypes", relationship: "Mother",}
     {name: "John Lapehn", relationship: "Father",}
@@ -56,21 +71,14 @@ app.get('/api', function api_index(req, res) {
     {name: "Courtney Lapehn", relationship: "Sister", side: "John"}
     {name: "Zach Lapehn", relationship: "Brother", side: "John"}
     ]
-    message: "Welcome to my personal api! Here's what you need to know!",
-    documentation_url: "https://github.com/mlapehn/express-personal-api/blob/master/README.md", // Update readme
-    base_url: "https://fast-inlet-93943.herokuapp.com/", // API url - DONE
-    endpoints: [
-      {method: "GET", path: "/api", description: "Describes all available endpoints"},
-      {method: "GET", path: "/api/profile", description: "Fast Facts"}, // Facts about me
-      {method: "POST", path: "/api/movies", description: "Favorite Movies"} // Movies
-      {method: "POST", path: "/api/something"} //add another catagory
-    ]
-  })
+  });
 });
+
+
 
 // Movies
 app.get('/api/movies', function api_movies(req, res) {
-  db.movies.find()
+  db.Movies.find()
     .exec(function(err, movies) {
       if (err) { 
         return console.log("index error: " + err); 
@@ -107,7 +115,6 @@ app.post('/api/movies', function api_movieNew(req, res) {
 });
 
 //Delete a movie
-//Delete A City
 app.delete('/api/movies/:id', function api_moviesDelete(req, res) {
   var movieId = req.params.id;
   //Find Database City

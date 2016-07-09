@@ -9,5 +9,5 @@ var MoviesSchema = new Schema({
     year: Number,
 });
 
-var Movie = mongoose.model('Movie', CitiesSchema);
+var Movie = mongoose.model('Movie', MoviesSchema);
 module.exports = Movie;
