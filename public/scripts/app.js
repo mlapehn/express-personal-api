@@ -1,4 +1,4 @@
-console.log("Sanity Check: JS is working!");
+console.log("Server is running!");
 
 $(document).ready(function(){
 

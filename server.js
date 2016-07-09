@@ -37,14 +37,14 @@ app.get('/', function homepage(req, res) {
 app.get('/api', function api_index(req, res) {
   // TODO: Document all your api endpoints below
   res.json({
-    woops_i_has_forgot_to_document_all_my_endpoints: true, // CHANGE ME ;)
+    Personal_API: true, // DONE
     message: "Welcome to my personal api! Here's what you need to know!",
-    documentation_url: "https://github.com/example-username/express_self_api/README.md", // CHANGE ME
-    base_url: "http://YOUR-APP-NAME.herokuapp.com", // CHANGE ME
+    documentation_url: "https://github.com/mlapehn/express-personal-api/blob/master/README.md", // Update readme
+    base_url: "https://fast-inlet-93943.herokuapp.com/", // API url - DONE
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
-      {method: "GET", path: "/api/profile", description: "Data about me"}, // CHANGE ME
-      {method: "POST", path: "/api/campsites", description: "E.g. Create a new campsite"} // CHANGE ME
+      {method: "GET", path: "/api/profile", description: "Fast Facts"}, // Facts about me
+      {method: "POST", path: "/api/movies", description: "Favorite Movies"} // Movies
     ]
   })
 });
