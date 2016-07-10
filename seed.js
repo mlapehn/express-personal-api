@@ -13,33 +13,33 @@ var movies = [
   },
     {
     _id: 2,
-    title: "",
-    director: "",
-    year: "",
+    title: "Days of Thunder",
+    director: "Tony Scott",
+    year: "1990",
   },
     {
     _id: 3,
-    title: "",
-    director: "",
-    year: "",
+    title: "Dumb and Dumber",
+    director: "Peter Farrelly, Bobby Farrelly",
+    year: "1994",
   },
     {
     _id: 4,
-    title: "",
-    director: "",
-    year: "",
+    title: "Austin Powers",
+    director: "Jay Roach",
+    year: "1997",
   },
     {
     _id: 5,
-    title: "",
-    director: "",
-    year: "",
+    title: "Wreck it Ralph",
+    director: "Rich Moore",
+    year: "2012",
   },
     {
     _id: 6,
-    title: "",
-    director: "",
-    year: "",
+    title: "The Departed",
+    director: "Martin Scorsese",
+    year: "2006",
   },
     {
     _id: 7,
@@ -75,13 +75,13 @@ db.Movie.remove({}, function(err, movies) {
 	} else {
 		console.log('removed movies');
   		
-  		//Create
-  		db.Movie.create(movies, function(err, movies){
-  			if (err) {
-  				return console.log(err);
-  			}
-  			console.log("Created: ", + movies.length + " movies");
-			process.exit();
+//Create
+db.Movie.create(movies, function(err, movies){
+  	if (err) {
+  		return console.log(err);
+  		}
+  		console.log("Created: ", + movies.length + " movies");
+		process.exit();
 		});
 	}
 });

@@ -44,8 +44,8 @@ app.get('/api', function api_index(req, res) {
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
       {method: "GET", path: "/api/profile", description: "Fast Facts"}, // Facts about me
-      {method: "POST", path: "/api/movies", description: "Favorite Movies"} // Movies
-      {method: "Add something"} //add another catagory
+      {method: "POST", path: "/api/movies", description: "Top Ten Movies"} // Movies
+      //add another catagory
     ]
   })
 });
@@ -65,12 +65,12 @@ app.get('/api/profile', function api_profile(req, res) {
     {name: "Jeanette Lapehn", relationship: "Step-Mother",}
     ]
     siblings: [
-    {name: "Lindey Hypes", relationship: "Step-Sister", side: "Bret"}
-    {name: "Brandon Lapehn", relationship: "Brother", side: "Boni & John"}
-    {name: "Taylor Hypes", relationship: "Brother", side: "Boni"}
-    {name: "Courtney Lapehn", relationship: "Sister", side: "John"}
-    {name: "Zach Lapehn", relationship: "Brother", side: "John"}
-    ]
+    {name: "Lindey Hypes", relationship: "Step-Sister", side: "Bret",}
+    {name: "Brandon Lapehn", relationship: "Brother", side: "Boni & John",}
+    {name: "Taylor Hypes", relationship: "Brother", side: "Boni",}
+    {name: "Courtney Lapehn", relationship: "Sister", side: "John",}
+    {name: "Zach Lapehn", relationship: "Brother", side: "John",}
+    ],
   });
 });
 
