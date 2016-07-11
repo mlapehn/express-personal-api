@@ -59,17 +59,17 @@ app.get('/api/profile', function api_profile(req, res) {
     height: "",
     weight: "Wouldn't you like to know!",
     parents: [
-    {name: "Boni Hypes", relationship: "Mother",}
-    {name: "John Lapehn", relationship: "Father",}
-    {name: "Bret Hypes", relationship: "Step-Father",}
-    {name: "Jeanette Lapehn", relationship: "Step-Mother",}
-    ]
+    {name: "Boni Hypes", relationship: "Mother"},
+    {name: "John Lapehn", relationship: "Father"},
+    {name: "Bret Hypes", relationship: "Step-Father"},
+    {name: "Jeanette Lapehn", relationship: "Step-Mother"}
+    ],
     siblings: [
-    {name: "Lindey Hypes", relationship: "Step-Sister", side: "Bret",}
-    {name: "Brandon Lapehn", relationship: "Brother", side: "Boni & John",}
-    {name: "Taylor Hypes", relationship: "Brother", side: "Boni",}
-    {name: "Courtney Lapehn", relationship: "Sister", side: "John",}
-    {name: "Zach Lapehn", relationship: "Brother", side: "John",}
+    {name: "Lindey Hypes", relationship: "Step-Sister", side: "Bret"},
+    {name: "Brandon Lapehn", relationship: "Brother", side: "Boni & John"},
+    {name: "Taylor Hypes", relationship: "Brother", side: "Boni"},
+    {name: "Courtney Lapehn", relationship: "Sister", side: "John"},
+    {name: "Zach Lapehn", relationship: "Brother", side: "John"}
     ],
   });
 });
@@ -78,7 +78,7 @@ app.get('/api/profile', function api_profile(req, res) {
 
 // Movies
 app.get('/api/movies', function api_movies(req, res) {
-  db.Movies.find()
+  db.Movie.find({})
     .exec(function(err, movies) {
       if (err) { 
         return console.log("index error: " + err); 
