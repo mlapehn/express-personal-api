@@ -114,10 +114,24 @@ app.post('/api/movies', function api_movieNew(req, res) {
   });
 });
 
+
+//Update A Movie
+app.put('/api/movies/:name', function api_moviesUdpate(req, res) {
+  var movieName = req.params.name;
+  var change = req.body;
+  db.Movie.findOneAndUpdate({name: movieName}, change, function(err, foundMovie){
+      foundMovie.save(function(err, foundMovie) {
+        if (err) {
+          return console.log("save error: " + err);
+        }
+        res.json(foundMovie);
+      });
+    });
+});
+
 //Delete a movie
 app.delete('/api/movies/:id', function api_moviesDelete(req, res) {
   var movieId = req.params.id;
-  //Find Database City
   db.Movie.findOneAndRemove({_id: movieId}, function(err, deletedMovie) {
     res.json(deletedMovie);
   });

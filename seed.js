@@ -68,21 +68,20 @@ var movies = [
 ];
 
 
-//Remove
-db.Movie.remove({}, function(err, movie) {
-
-	if (err) {
-		console.log(err);
-	} else {
-		console.log('removed movies');
-  	}
-
-	//Create
-	db.Movie.create(movies, function(err, movie) {
-	  	if (err) return console.log(err);
-	  	
-		console.log("Created: " + movie.length + 	" movies");
-		process.exit();
-	});
-	
+//Remove Movies
+db.Movie.remove({}, function(err, movies) {
+    if (err) {
+        console.log(err);
+    } else {
+        console.log('removed movies');
+        
+        //Create New Cities
+        db.Movie.create(movies, function(err, movies){
+            if (err) {
+                return console.log(err);
+            }
+            console.log("Created: ", + movies.length + " movies");
+            process.exit();
+        });
+    }
 });
